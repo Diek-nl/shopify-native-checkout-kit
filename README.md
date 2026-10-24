@@ -8,6 +8,8 @@ Gemaakt door [DIEK](https://diek.nl), full-stack Shopify (Plus) development uit 
 
 USP's, een upsell, een gratis-verzending-balk en klantreviews. Je sleept ze in de checkout-editor, typt je teksten in en klaar. Geen abonnement, geen server, geen script in je thema.
 
+![De vier blokken in de Shopify-checkout van de demo-store: verzendbalk, upsell, USP's en klantreviews](docs/checkout.png)
+
 **Inhoud:** [Wat is dit?](#wat-is-dit) · [Wat heb je nodig?](#wat-heb-je-nodig) · [Installeren](#installeren-in-vijf-stappen) · [Instellingen per blok](#de-instellingen-per-blok) · [Ik zie een blok niet](#ik-zie-een-blok-niet-wat-nu) · [Wat dit bewust niet doet](#wat-dit-bewust-niet-doet) · [Voor developers](#voor-developers) · [Over DIEK](#over-diek)
 
 ## Wat is dit?
