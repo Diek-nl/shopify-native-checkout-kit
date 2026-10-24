@@ -1,0 +1,151 @@
+# Klantreviews in de checkout zonder review-app. Onderdeel van de DIEK checkout-kit.
+# Gebouwd door Diek Thunnissen, DIEK (https://diek.nl)
+# https://github.com/Diek-nl/shopify-native-checkout-kit · MIT
+#
+# Tot drie reviews (quote, naam, sterren) die je in de checkout-editor
+# intypt. Eén review tegelijk zichtbaar, draait elke 6 seconden, met pijltjes
+# om zelf te bladeren. Geen koppeling met een reviewplatform: jij kiest de
+# drie beste.
+#
+# Twee targets, één extensie:
+#  - purchase.checkout.block.render   → in de checkout (Shopify Plus)
+#  - purchase.thank-you.block.render  → op de bedankpagina (elk plan)
+api_version = "2026-07"
+uid = "874b64ec-581d-4356-8f53-29e489e3e46a"
+
+[[extensions]]
+name = "Klantreviews"
+handle = "checkout-testimonials"
+description = "Tot drie klantreviews met sterren, instelbaar in de editor. Door DIEK, diek.nl"
+type = "ui_extension"
+
+  [[extensions.targeting]]
+  target = "purchase.checkout.block.render"
+  module = "./src/TestimonialsBlock.tsx"
+
+  [[extensions.targeting]]
+  target = "purchase.thank-you.block.render"
+  module = "./src/TestimonialsBlock.tsx"
+
+  [extensions.settings]
+    [[extensions.settings.fields]]
+    key = "heading"
+    type = "single_line_text_field"
+    name = "Kop"
+    description = "Standaard: Beoordeeld door onze klanten"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "60"
+
+    [[extensions.settings.fields]]
+    key = "verified_label"
+    type = "single_line_text_field"
+    name = "Label achter de naam"
+    description = "Standaard: geverifieerde koper. Leeg = geen label."
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "40"
+
+    [[extensions.settings.fields]]
+    key = "quote_1"
+    type = "multi_line_text_field"
+    name = "Review 1"
+    description = "De quote, zonder aanhalingstekens"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "240"
+
+    [[extensions.settings.fields]]
+    key = "author_1"
+    type = "single_line_text_field"
+    name = "Naam bij review 1"
+    description = "Bijvoorbeeld: Sanne uit Utrecht"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "60"
+
+    [[extensions.settings.fields]]
+    key = "rating_1"
+    type = "number_integer"
+    name = "Sterren bij review 1"
+    description = "1 tot 5, standaard 5"
+
+      [[extensions.settings.fields.validations]]
+      name = "min"
+      value = "1"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "5"
+
+    [[extensions.settings.fields]]
+    key = "quote_2"
+    type = "multi_line_text_field"
+    name = "Review 2"
+    description = "De quote, zonder aanhalingstekens"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "240"
+
+    [[extensions.settings.fields]]
+    key = "author_2"
+    type = "single_line_text_field"
+    name = "Naam bij review 2"
+    description = "Bijvoorbeeld: Sanne uit Utrecht"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "60"
+
+    [[extensions.settings.fields]]
+    key = "rating_2"
+    type = "number_integer"
+    name = "Sterren bij review 2"
+    description = "1 tot 5, standaard 5"
+
+      [[extensions.settings.fields.validations]]
+      name = "min"
+      value = "1"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "5"
+
+    [[extensions.settings.fields]]
+    key = "quote_3"
+    type = "multi_line_text_field"
+    name = "Review 3"
+    description = "De quote, zonder aanhalingstekens"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "240"
+
+    [[extensions.settings.fields]]
+    key = "author_3"
+    type = "single_line_text_field"
+    name = "Naam bij review 3"
+    description = "Bijvoorbeeld: Sanne uit Utrecht"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "60"
+
+    [[extensions.settings.fields]]
+    key = "rating_3"
+    type = "number_integer"
+    name = "Sterren bij review 3"
+    description = "1 tot 5, standaard 5"
+
+      [[extensions.settings.fields.validations]]
+      name = "min"
+      value = "1"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "5"

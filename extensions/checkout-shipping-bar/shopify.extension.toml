@@ -1,0 +1,60 @@
+# Gratis-verzending-balk in de checkout zonder app. Onderdeel van de DIEK checkout-kit.
+# Gebouwd door Diek Thunnissen, DIEK (https://diek.nl)
+# https://github.com/Diek-nl/shopify-native-checkout-kit · MIT
+#
+# "Nog €12,50 tot gratis verzending" met een voortgangsbalk. De drempel vul
+# je in de checkout-editor in, dezelfde als in je verzendtarieven. De balk
+# rekent live mee met de cart (ook met de upsell-knop uit deze kit) en zegt
+# "gratis" zodra Shopify zelf €0 verzendkosten rekent, wat de drempel ook is.
+#
+# Alleen in de checkout (Shopify Plus): op de bedankpagina valt er niets
+# meer te halen.
+api_version = "2026-07"
+uid = "74a23451-9041-4383-ae72-f169bf60e5ff"
+
+[[extensions]]
+name = "Gratis-verzending-balk"
+handle = "checkout-shipping-bar"
+description = "Voortgang naar je gratis-verzenddrempel, live met de cart. Door DIEK, diek.nl"
+type = "ui_extension"
+
+  [[extensions.targeting]]
+  target = "purchase.checkout.block.render"
+  module = "./src/ShippingBar.tsx"
+
+  [extensions.settings]
+    [[extensions.settings.fields]]
+    key = "threshold"
+    type = "number_decimal"
+    name = "Drempel voor gratis verzending"
+    description = "Hetzelfde bedrag als in Instellingen → Verzending. Bijvoorbeeld 75"
+
+      [[extensions.settings.fields.validations]]
+      name = "min"
+      value = "0.01"
+
+    [[extensions.settings.fields]]
+    key = "message_remaining"
+    type = "single_line_text_field"
+    name = "Tekst onder de drempel"
+    description = "{bedrag} wordt vervangen door het resterende bedrag. Standaard: Nog {bedrag} tot gratis verzending"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "message_reached"
+    type = "single_line_text_field"
+    name = "Tekst bij de drempel"
+    description = "Standaard: Je ontvangt gratis verzending"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "hide_when_reached"
+    type = "boolean"
+    name = "Verberg de balk zodra de drempel gehaald is"
+    description = "Standaard uit: de balk blijft staan als bevestiging."

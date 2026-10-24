@@ -1,0 +1,20 @@
+{
+  "name": "checkout-usps",
+  "private": true,
+  "author": "Diek Thunnissen <diek@diek.nl> (https://diek.nl)",
+  "homepage": "https://github.com/Diek-nl/shopify-native-checkout-kit",
+  "license": "MIT",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.5.1",
+    "@shopify/ui-extensions": "~2026.7.0",
+    "preact": "^10.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

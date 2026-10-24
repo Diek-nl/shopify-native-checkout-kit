@@ -1,0 +1,27 @@
+{
+  "name": "shopify-native-checkout-kit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vier checkout-blokken voor Shopify zonder apps: USP's, upsell uit Search & Discovery, gratis-verzending-balk en klantreviews. Extension-only, geen backend, alles instelbaar in de checkout-editor.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "extensions/*"
+  ],
+  "scripts": {
+    "dev": "shopify app dev",
+    "deploy": "shopify app deploy",
+    "config:link": "shopify app config link",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "shopify": "shopify"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.90.0"
+  },
+  "author": "Diek Thunnissen <diek@diek.nl> (https://diek.nl)",
+  "homepage": "https://diek.nl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Diek-nl/shopify-native-checkout-kit.git"
+  }
+}

@@ -1,0 +1,75 @@
+# Upsell in de checkout zonder upsell-app. Onderdeel van de DIEK checkout-kit.
+# Gebouwd door Diek Thunnissen, DIEK (https://diek.nl)
+# https://github.com/Diek-nl/shopify-native-checkout-kit · MIT
+#
+# De aanbevelingen komen uit Shopify's eigen (gratis) Search & Discovery-app:
+# Products → Search & Discovery → Recommendations → Complementary products.
+# Deze extensie vraagt via de Storefront API `productRecommendations(intent:
+# COMPLEMENTARY)` op voor wat er in de cart ligt en toont het als kaart.
+#
+# Twee targets, één extensie:
+#  - purchase.checkout.block.render   → kaart met Toevoegen-knop (Shopify Plus)
+#  - purchase.thank-you.block.render  → kaart met link naar het product (elk plan)
+api_version = "2026-07"
+uid = "618cbd0f-1ecb-4cbb-a3dc-828eb7c90fdf"
+
+[[extensions]]
+name = "Upsell (Search & Discovery)"
+handle = "checkout-upsell"
+description = "Complementaire producten uit Search & Discovery als upsell-kaart. Door DIEK, diek.nl"
+type = "ui_extension"
+
+  [[extensions.targeting]]
+  target = "purchase.checkout.block.render"
+  module = "./src/CheckoutUpsell.tsx"
+
+  [[extensions.targeting]]
+  target = "purchase.thank-you.block.render"
+  module = "./src/ThankYouUpsell.tsx"
+
+  [extensions.capabilities]
+  # Storefront API vanuit de extensie (productRecommendations). Geen netwerk
+  # naar buiten, geen eigen backend.
+  api_access = true
+
+  # Instellingen die de merchant in de checkout-editor invult.
+  [extensions.settings]
+    [[extensions.settings.fields]]
+    key = "heading"
+    type = "single_line_text_field"
+    name = "Kop boven de kaart"
+    description = "Bijvoorbeeld: Vaak samen gekocht"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "40"
+
+    [[extensions.settings.fields]]
+    key = "button_label"
+    type = "single_line_text_field"
+    name = "Knoptekst (alleen checkout)"
+    description = "Bijvoorbeeld: Toevoegen"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "20"
+
+    [[extensions.settings.fields]]
+    key = "multi_variant"
+    type = "boolean"
+    name = "Ook producten met meerdere varianten aanbieden (checkout)"
+    description = "Standaard uit: in de checkout kun je geen maat kiezen. Aan = de eerste variant wordt toegevoegd."
+
+    [[extensions.settings.fields]]
+    key = "max_offers"
+    type = "number_integer"
+    name = "Maximaal aantal aanbiedingen"
+    description = "1 tot 3. Meer dan één kaart in de checkout leidt af."
+
+      [[extensions.settings.fields.validations]]
+      name = "min"
+      value = "1"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "3"

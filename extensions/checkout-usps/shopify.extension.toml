@@ -1,0 +1,94 @@
+# USP's in de checkout zonder app. Onderdeel van de DIEK checkout-kit.
+# Gebouwd door Diek Thunnissen, DIEK (https://diek.nl)
+# https://github.com/Diek-nl/shopify-native-checkout-kit · MIT
+#
+# Een korte lijst zekerheden ("Gratis retourneren", "Voor 23:59 besteld,
+# morgen in huis"). De merchant typt de regels in de checkout-editor;
+# lege regels worden overgeslagen. Geen data buiten Shopify.
+#
+# Twee targets, één extensie:
+#  - purchase.checkout.block.render   → in de checkout (Shopify Plus)
+#  - purchase.thank-you.block.render  → op de bedankpagina (elk plan)
+api_version = "2026-07"
+uid = "a1d48160-9fb8-49c7-8d8c-9904412e118e"
+
+[[extensions]]
+name = "USP's"
+handle = "checkout-usps"
+description = "Korte lijst zekerheden met vinkjes, instelbaar in de editor. Door DIEK, diek.nl"
+type = "ui_extension"
+
+  [[extensions.targeting]]
+  target = "purchase.checkout.block.render"
+  module = "./src/UspsBlock.tsx"
+
+  [[extensions.targeting]]
+  target = "purchase.thank-you.block.render"
+  module = "./src/UspsBlock.tsx"
+
+  [extensions.settings]
+    [[extensions.settings.fields]]
+    key = "heading"
+    type = "single_line_text_field"
+    name = "Kop (optioneel)"
+    description = "Bijvoorbeeld: Waarom klanten bij ons bestellen. Leeg = geen kop."
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "60"
+
+    [[extensions.settings.fields]]
+    key = "usp_1"
+    type = "single_line_text_field"
+    name = "Regel 1"
+    description = "Bijvoorbeeld: Gratis retourneren binnen 30 dagen"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "usp_2"
+    type = "single_line_text_field"
+    name = "Regel 2"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "usp_3"
+    type = "single_line_text_field"
+    name = "Regel 3"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "usp_4"
+    type = "single_line_text_field"
+    name = "Regel 4"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "usp_5"
+    type = "single_line_text_field"
+    name = "Regel 5"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "80"
+
+    [[extensions.settings.fields]]
+    key = "icon"
+    type = "single_line_text_field"
+    name = "Icoon"
+    description = "check (standaard), check-circle-filled, delivery, lock, return of star-filled"
+
+      [[extensions.settings.fields.validations]]
+      name = "max"
+      value = "30"

@@ -1,0 +1,18 @@
+# Extension-only app: geen backend, geen database, geen scopes.
+# Eerste keer: `npm run config:link` koppelt dit bestand aan een app in je
+# Partner-account (of maakt er een aan) en vult client_id in.
+name = "native-checkout-kit"
+embedded = false
+application_url = "https://shopify.dev/apps/default-app-home"
+
+[access_scopes]
+scopes = ""
+
+[auth]
+redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+
+[webhooks]
+api_version = "2026-07"
+
+[build]
+automatically_update_urls_on_dev = true
