@@ -15,6 +15,7 @@ Werk de stappen uit de README af en vertel de gebruiker per stap wat er gaat geb
    - Winkeldomein invullen (`jouwshop.myshopify.com`) → **Link genereren** → link openen → **Installeren**.
    - Shopify-admin → **Instellingen → Checkout → Aanpassen** → **App-blok toevoegen** → kies een van de vier blokken → slepen → rechts de instellingen invullen → **Opslaan**. USP's, Klantreviews en Upsell kunnen ook op het tabblad **Bedankt**.
    - Op een development store: distributie overslaan, op de app-pagina direct **Install app**.
+   - Optioneel: `docs/app-icon.png` uploaden als app-icoon onder **Instellingen → App-icoon** op de app-pagina. Dat kan niet via de CLI of de toml, alleen in het dashboard.
 
 Vereisten die je moet checken vóór je begint: Node 20 of nieuwer (`node -v`) en Shopify CLI (`npx shopify version`; wordt anders via npm mee-geïnstalleerd).
 

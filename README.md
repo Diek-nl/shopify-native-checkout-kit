@@ -82,6 +82,8 @@ Bevestig met ja. De code staat nu bij Shopify, maar nog niet op je shop. Daarvoo
 3. Vul het adres van je shop in (`jouwshop.myshopify.com`) en klik op **Link genereren**.
 4. Open die link en klik op **Installeren**.
 
+Wil je een icoon voor de app, zodat je de blokken in de checkout-editor meteen herkent? Upload dan `docs/app-icon.png` op dezelfde app-pagina onder **Instellingen → App-icoon** (1200 × 1200, staat klaar in deze repo). Of zet er je eigen logo neer, het is jouw app.
+
 "Aangepaste distributie" is Shopify's naam voor een app die voor één shop is (of voor de shops binnen één Plus-organisatie). Je kunt die keuze later niet meer omzetten naar de App Store, maar dat is hier ook niet de bedoeling. Test je op een development store, dan kun je stap 1 tot en met 4 overslaan en op de app-pagina direct op **Install app** klikken.
 
 **5. Zet de blokken op hun plek**
