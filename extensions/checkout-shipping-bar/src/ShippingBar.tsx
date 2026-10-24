@@ -11,9 +11,12 @@ import { render } from 'preact';
  *   ingevuld, dan rendert het blok niets.
  * - shopify.cost.subtotalAmount is een signal: elke wijziging in de cart
  *   (aantal, upsell, kortingscode) rekent direct mee.
- * - De kassa is de waarheid: heeft de klant een verzendoptie gekozen en rekent
- *   Shopify €0, dan zegt de balk "gratis", ook als het subtotaal onder de
- *   ingevulde drempel ligt (bijvoorbeeld door een gratis-verzending-korting).
+ * - De kassa is de waarheid: zodra er een verzendoptie gekozen is, bepaalt het
+ *   bedrag dat Shopify rekent of de balk "gratis" zegt. €0 = gratis, ook als
+ *   het subtotaal onder de drempel ligt (gratis-verzending-korting). Meer dan
+ *   €0 = niet gehaald, ook als het subtotaal boven de drempel ligt (een
+ *   kortingscode die het totaal onder de drempel duwt). Vóór die keuze rekent
+ *   de balk met het subtotaal.
  * - Het subtotaal is vóór verzendkosten en belasting, zoals Shopify's eigen
  *   verzendvoorwaarde "op basis van orderprijs" het ook rekent.
  */
@@ -35,12 +38,11 @@ function ShippingBar() {
   const subtotal = shopify.cost.subtotalAmount.value;
   if (!Number.isFinite(threshold) || threshold <= 0 || !subtotal) return null;
 
+  // undefined tot de klant een verzendoptie heeft gekozen.
   const shippingCost = shopify.cost.totalShippingAmount.value;
-  const shippingIsFree = !!shippingCost && Number(shippingCost.amount) === 0;
-
   const amount = Number(subtotal.amount);
-  const remaining = shippingIsFree ? 0 : Math.max(0, threshold - amount);
-  const reached = remaining <= 0;
+  const reached = shippingCost ? Number(shippingCost.amount) === 0 : amount >= threshold;
+  const remaining = reached ? 0 : Math.max(0, threshold - amount);
 
   if (reached && settings.hide_when_reached === true) return null;
 

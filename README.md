@@ -2,11 +2,17 @@
 
 # Vier checkout-blokken voor Shopify, zonder apps
 
+[![Licentie: MIT](https://img.shields.io/badge/licentie-MIT-2ea44f)](LICENSE) [![Checkout UI Extensions 2026-07](https://img.shields.io/badge/Checkout_UI_Extensions-2026--07-5c6ac4)](https://shopify.dev/docs/api/checkout-ui-extensions) [![Geen backend](https://img.shields.io/badge/backend-geen-lightgrey)](#voor-developers) [![English](https://img.shields.io/badge/English-summary_below-blue)](#english-summary)
+
 Gemaakt door [DIEK](https://diek.nl), full-stack Shopify (Plus) development uit Nijmegen. Gratis en open source, doe ermee wat je wilt.
+
+USP's, een upsell, een gratis-verzending-balk en klantreviews. Je sleept ze in de checkout-editor, typt je teksten in en klaar. Geen abonnement, geen server, geen script in je thema.
+
+**Inhoud:** [Wat is dit?](#wat-is-dit) · [Wat heb je nodig?](#wat-heb-je-nodig) · [Installeren](#installeren-in-vijf-stappen) · [Instellingen per blok](#de-instellingen-per-blok) · [Ik zie een blok niet](#ik-zie-een-blok-niet-wat-nu) · [Wat dit bewust niet doet](#wat-dit-bewust-niet-doet) · [Voor developers](#voor-developers) · [Over DIEK](#over-diek)
 
 ## Wat is dit?
 
-Vier blokken die je in de Shopify checkout-editor sleept en daar invult. Geen app-abonnement, geen externe server, geen code in je thema. Verwijder de app en je checkout is weer precies zoals hij was.
+Vier blokken die je in de Shopify checkout-editor sleept en daar invult. Verwijder de app en je checkout is weer precies zoals hij was.
 
 | Blok | Wat het doet | Waar | Plan |
 |---|---|---|---|
@@ -116,7 +122,7 @@ De aanbevelingen zelf stel je in bij Products → open een product → Search & 
 | Tekst bij de drempel | Je ontvangt gratis verzending | |
 | Verberg zodra gehaald | uit | Aan = de balk verdwijnt boven de drempel |
 
-De balk rekent met het subtotaal vóór verzending en belasting, net als Shopify's eigen verzendvoorwaarde. Rekent Shopify om een andere reden €0 verzendkosten (een kortingscode voor gratis verzending), dan zegt de balk ook "gratis".
+Tot de klant een verzendoptie kiest, rekent de balk met het subtotaal vóór verzending en belasting, net als Shopify's eigen verzendvoorwaarde. Daarna is de kassa de waarheid: rekent Shopify €0 (ook door een kortingscode voor gratis verzending), dan zegt de balk "gratis". Rekent Shopify wél verzendkosten, bijvoorbeeld omdat een kortingscode het totaal onder de drempel duwde, dan zegt de balk dat ook.
 
 **Klantreviews**
 
